@@ -50,5 +50,16 @@ public class Application {
 				return a * 4 + b * 4; // Quadruple operation
 			}
 		}, 2, 3); //Output: Result: 20 (2*4 + 3*4)
+
+		//Branch 4: Implementing lambda expression for NumberOperation
+		execute((a, b) -> a * 5 + b * 5, 1, 2);
+		execute((a, b) -> a * 6 + b * 6, 3, 4);
+
+		//Block Lambda (multi-statement)
+		execute((a, b) -> {
+			int sum = a + b;
+			int product = a * b;
+			return sum + product; // Returns sum of a and b plus their product
+		}, 2, 3); //Output: Result: 11 (2+3 + 2*3)
 	}
 }
