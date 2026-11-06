@@ -13,7 +13,7 @@ public class Application {
 			int result = operation.apply(a, b);
 			System.out.println("Result: " + result);
 		}
-
+	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 		ReportOptions report1 = new ReportOptionsBuilder()
@@ -42,5 +42,13 @@ public class Application {
 		// Using TripleOperation
 		NumberOperation tripleOp = new TripleOperation();
 		execute(tripleOp, 5, 10); //Output: Result: 45 (5*3 + 10*3)
+
+		//Branch 3: Implementing anonymous class for NumberOperation
+		execute(new NumberOperation() {
+			@Override
+			public int apply(int a, int b) {
+				return a * 4 + b * 4; // Quadruple operation
+			}
+		}, 2, 3); //Output: Result: 20 (2*4 + 3*4)
 	}
 }
