@@ -9,6 +9,11 @@ public class Application {
 		super();
 	}
 
+	public static void execute(NumberOperation operation, int a, int b) {
+			int result = operation.apply(a, b);
+			System.out.println("Result: " + result);
+		}
+
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 		ReportOptions report1 = new ReportOptionsBuilder()
@@ -29,6 +34,13 @@ public class Application {
 		System.out.println(report1);
 		System.out.println(report2);
 		System.out.println(report3);
-	}
 
+		// Using DoubleOperation
+		NumberOperation doubleOp = new DoubleOperation();
+		execute(doubleOp, 10, 5); //Output: Result: 30 (10*2 + 5*2)
+
+		// Using TripleOperation
+		NumberOperation tripleOp = new TripleOperation();
+		execute(tripleOp, 5, 10); //Output: Result: 45 (5*3 + 10*3)
+	}
 }
