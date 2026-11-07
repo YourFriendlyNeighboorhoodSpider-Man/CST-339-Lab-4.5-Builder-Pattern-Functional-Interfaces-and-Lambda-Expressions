@@ -79,6 +79,16 @@ public class Application {
 		Supplier<String> message = () -> "Hello, World!";
 		System.out.println(message.get()); //Output: Hello, World!
 
+		ServerOptions.configure(options -> {
+			options.setLogging(true);
+			options.setPort(8080);
+		});
+
+		ServerOptions.configure(options -> {
+			options.setLogging(false);
+			options.setPort(9090);
+		});
+
 
 	}
 }
