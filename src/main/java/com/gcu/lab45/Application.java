@@ -2,6 +2,10 @@ package com.gcu.lab45;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import java.util.function.Predicate;
+import java.util.function.Function;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 @SpringBootApplication
 public class Application {
@@ -61,5 +65,20 @@ public class Application {
 			int product = a * b;
 			return sum + product; // Returns sum of a and b plus their product
 		}, 2, 3); //Output: Result: 11 (2+3 + 2*3)
+
+		Predicate<String> isEmpty = str -> str.isEmpty();
+		System.out.println(isEmpty.test("")); //Output: true
+		System.out.println(isEmpty.test("Java")); //Output: false
+
+		Function<String, Integer> stringLength = str -> str.length();
+		System.out.println(stringLength.apply("Java")); //Output: 4
+
+		Consumer<String> display = str -> System.out.println(str);
+		display.accept("Java"); //Output: Java
+
+		Supplier<String> message = () -> "Hello, World!";
+		System.out.println(message.get()); //Output: Hello, World!
+
+
 	}
 }
